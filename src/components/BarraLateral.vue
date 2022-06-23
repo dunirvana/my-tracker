@@ -4,6 +4,9 @@
       <img src="../assets/logo.png" alt="">
       <span>myTracker</span>
     </h1>
+    <button class="button" @click="alterarTema">
+      {{ textoDoBotao }}
+    </button>
   </header>
 </template>
 
@@ -11,7 +14,27 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'BarraLateral'
+  name: 'BarraLateral',
+  emits: ['aoTemaAlterado'],
+  data () {
+    return {
+      modoEscuroAtivo: false
+    }
+  },
+  computed: {
+    textoDoBotao() {
+      if (this.modoEscuroAtivo) {
+        return 'Desativar modo escuro';
+      }
+      return 'Ativar modo escuro';
+    }
+  },
+  methods: {
+    alterarTema() {
+      this.modoEscuroAtivo = !this.modoEscuroAtivo;
+      this.$emit('aoTemaAlterado', this.modoEscuroAtivo);
+    }
+  }
 })
 </script>
 
@@ -21,6 +44,7 @@ header {
   background: #0d3b66;
   width: 100%;
   height: 100vh;
+  text-align: center;
 }
 img {
   width: 30%;
