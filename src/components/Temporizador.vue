@@ -39,7 +39,6 @@ export default defineComponent({
     },
     methods: {
         iniciar() {
-            console.log("Iniciando ...");
             this.cronometroRodando = true;
 
             this.cronometro = setInterval(() => {
@@ -47,7 +46,6 @@ export default defineComponent({
             }, 1000);
         },
         finalizar() {
-            console.log("Finalizando ...");
             this.cronometroRodando = false;
 
             clearInterval(this.cronometro);

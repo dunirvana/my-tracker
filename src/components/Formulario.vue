@@ -28,7 +28,6 @@ export default defineComponent({
     },
     methods: {
       finalizarTarefa(tempoDecorrido: number) : void {
-        console.log('Tarefa "', this.descricao, '" finalizada em', tempoDecorrido, 'segundos');
         this.$emit('aoSalvarTarefa', {
           duracaoEmSegundos: tempoDecorrido,
           descricao: this.descricao
